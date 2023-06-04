@@ -15,9 +15,23 @@ El proyecto sigue una arquitectura típica de una API REST en Django. Los compon
 - `views.py`: Define las vistas y maneja las solicitudes HTTP.
 - `urls.py`: Mapea las URLs a las vistas correspondientes.
 
+## Configuración Motor de Base de Datos MySQL
+
+Se realizó la creación de un SCHEMA con el nombre de la base de datos USERS
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/a274f4dd-417e-4ce4-9b0f-670fdc0aec3a)
+
+Conexión que fue agragada en el archivo `settings.py`:
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/9487be6e-10bc-4f12-9e87-6cee8b5ed874)
+
+Finalmente la tabla fue creada desde la hoja `models.py`, para que fuera actualizada directamente desde la API:
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/064eab27-f0d5-43a4-8339-b157536c7ff5)
+
 ## Modelos de datos
 
-### Modelo 1
+### BBDD USERS
 
 Descripción del Modelo 1.
 

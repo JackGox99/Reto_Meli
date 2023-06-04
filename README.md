@@ -37,11 +37,11 @@ Descripción del Modelo 1.
 
 | Campo    | Tipo    | Descripción             |
 | -------- | ------- | ----------------------- |
-| `id` | `bigint` | Descripción del campo1. |
-| `username` | `chard` | Descripción del campo2. |
-| `useremail` | `chard` | Descripción del campo3. |
-| `credit_card_number` | `int` | Descripción del campo3. |
-| `created_timestamp` | `date` | Descripción del campo3. |
+| `id` | `bigint` | N/A |
+| `username` | `chard` | USERNAME |
+| `useremail` | `chard` | EMAIL_ADDRESS |
+| `credit_card_number` | `int` | CREDIT_CARD_NUMBER |
+| `created_timestamp` | `date` | N/A |
 
 ## Scan y Categorización de la BBDD
 
@@ -132,10 +132,10 @@ Para realizar la consulta unicamente es necesario realizar la petición GET dire
 
 | Campo    | Tipo    | Descripción             |
 | -------- | ------- | ----------------------- |
-| `username` | `chard` | Descripción del campo2. |
-| `useremail` | `chard` | Descripción del campo3. |
-| `credit_card_number` | `int` | Descripción del campo3. |
-| `created_timestamp` | `date` | Descripción del campo3. |
+| `username` | `chard` | USERNAME |
+| `useremail` | `chard` | EMAIL_ADDRESS |
+| `credit_card_number` | `int` | CREDIT_CARD_NUMBER |
+| `created_timestamp` | `date` | N/A |
 
 Para realizar la consulta unicamente es necesario realizar la petición POST directo sobre la base datos con los parametros relacionados anteriormente, tendiendo en cuenta que todos son requeridos para que se realice de manera satisfactoria esta acción.
 
@@ -153,3 +153,127 @@ Para realizar la consulta unicamente es necesario realizar la petición POST dir
 }
 ```
  
+ ## Consulta Por ID - USERS
+
+#### Parámetros de consulta
+
+### `GET /api/v1/users/{id}/`
+
+| Campo    | Tipo    | Descripción             |
+| -------- | ------- | ----------------------- |
+| `id` | `bigint` | N/A |
+
+
+Para realizar la consulta unicamente es necesario realizar la petición GET directo sobre la base datos con el ID como parametro, tendiendo en cuenta que este campo es requerido para que se realice de manera satisfactoria esta acción.
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/e66c5382-f7f4-4707-bd12-f8622ccec845)
+
+#### Respuesta
+
+```json
+{
+    "id": 4,
+    "username": "JackGox9",
+    "useremail": "Juliango@email.com",
+    "credit_card_number": 123123,
+    "created_timestamp": "2023-06-02"
+}
+```
+ 
+ 
+## Actualización Completa por ID - USERS
+
+#### Parámetros de consulta
+
+### `PUT /api/v1/users/{id}/params = {
+    "username": ...,
+    "useremail": ...,
+    "credit_card_number": ...,
+    "created_timestamp": ...,
+}`
+
+| Campo    | Tipo    | Descripción             |
+| -------- | ------- | ----------------------- |
+| `id` | `bigint` | N/A |
+
+#### Parametros Adicionales
+
+| Campo    | Tipo    | Descripción             |
+| -------- | ------- | ----------------------- |
+| `username` | `chard` | USERNAME |
+| `useremail` | `chard` | EMAIL_ADDRESS |
+| `credit_card_number` | `int` | CREDIT_CARD_NUMBER |
+| `created_timestamp` | `date` | N/A |
+
+Para realizar la consulta unicamente es necesario realizar la petición PUT directo sobre la base datos con el ID como parametro inicial paa confirmar que este exista en la base y adicional enviando los parametros a actualizar, tendiendo en cuenta que este campo es requerido para que se realice de manera satisfactoria esta acción.
+
+#### Antes de la actualización
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/59e3e6b3-e7b6-4e3a-b885-4d570009b534)
+
+#### Actualización
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/4faac095-9234-4a39-a667-9f1d19dceef0)
+
+#### Despues de la actualización
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/782b1d64-b2de-4a4d-851b-781976d436d7)
+
+ 
+## Actualización Parcial por ID - USERS
+
+#### Parámetros de consulta
+
+### `PATCH /api/v1/users/{id}/params = {
+    "username": ...,
+    "useremail": ...,
+    "credit_card_number": ...,
+    "created_timestamp": ...,
+}`
+
+| Campo    | Tipo    | Descripción             |
+| -------- | ------- | ----------------------- |
+| `id` | `bigint` | N/A |
+
+#### Parametros Adicionales
+
+| Campo    | Tipo    | Descripción             |
+| -------- | ------- | ----------------------- |
+| `username` | `chard` | USERNAME |
+| `useremail` | `chard` | EMAIL_ADDRESS |
+| `credit_card_number` | `int` | CREDIT_CARD_NUMBER |
+| `created_timestamp` | `date` | N/A |
+
+Para realizar la consulta unicamente es necesario realizar la petición PATCH directo sobre la base datos con el ID como parametro inicial paa confirmar que este exista en la base y adicional enviando los parametros a actualizar, tendiendo en cuenta que en este caso cualquier parametro es opcional ya que solo se desea actualziar un parametro y el resto dejarlos iguales
+
+#### Antes de la actualización
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/d519de96-41b5-4b8a-9fd9-9e46693e03f0)
+
+#### Actualización
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/acb70a0c-5f6a-40ab-a50a-c5569d4bc7b8)
+
+#### Despues de la actualización
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/8566d7fd-014a-4485-99af-641188f1d243)
+
+## Eliminación por ID - USERS
+
+#### Parámetros de consulta
+
+### `DELETE /api/v1/users/{id}/`
+
+| Campo    | Tipo    | Descripción             |
+| -------- | ------- | ----------------------- |
+| `id` | `bigint` | N/A |
+
+
+Para realizar la consulta unicamente es necesario realizar la petición DELETE directo sobre la base datos con el ID como parametro inicial para confirmar que este exista en la base y realizar la eliminación correspondiente 
+
+#### Respuesta
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/8f52382f-7907-4876-80ad-1cee579ba31a)
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/8b905daa-4958-4edc-8f4c-ef97cf4fe8fe)
+

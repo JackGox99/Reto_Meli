@@ -43,7 +43,7 @@ Descripción del Modelo 1.
 | `credit_card_number` | `int` | Descripción del campo3. |
 | `created_timestamp` | `date` | Descripción del campo3. |
 
-## Endpoints de la API
+## Scan y Categorización de la BBDD
 
 ### `GET /api/v1/database/scan/`
 
@@ -64,25 +64,92 @@ Descripción del endpoint. Devuelve una lista de recursos.
 
 ![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/c7117033-881d-43c4-bc38-9eb797d30a88)
 
+#### Respuesta
 
+```json
+{
+    {
+      "column_id": "3",
+      "field_type": "useremail"
+    }
+}
+
+ 
+```
+
+## CRUD DDBB USERS
+
+Se realizó adicionalmente un modulo en la API que permite realizar acciones directas sobre la Base de datos ya sea Crear, Leer, Actualizar y Borrar.
+
+## Escaneo BBDD USERS
+
+#### Parámetros de consulta
+
+### `GET /api/v1/users/`
+
+Para realizar la consulta unicamente es necesario realizar la petición GET directo sobre la base datos y esta responde con toda la información que se encuentre en ella.
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/408ca396-c37d-4e14-a571-ab1a55cf15fc)
+
+#### Respuesta
+
+```json
+[
+  {
+    "id": 1,
+    "username": "jackjax",
+    "useremail": "Juliango@email.com",
+    "credit_card_number": 2345654,
+    "created_timestamp": "2023-06-21"
+  },
+  {
+    "id": 3,
+    "username": "JackGox",
+    "useremail": "Juliango@email.com",
+    "credit_card_number": 123123123,
+    "created_timestamp": "2023-06-07"
+  },
+  {
+    "id": 4,
+    "username": "JackGox9",
+    "useremail": "Juliango@email.com",
+    "credit_card_number": 123123,
+    "created_timestamp": "2023-06-02"
+  }
+]
+```
+ 
+ ## Crear USERS
+
+#### Parámetros de consulta
+
+### `POST /api/v1/users/params = {
+    "username": ...,
+    "useremail": ...,
+    "credit_card_number": ...,
+    "created_timestamp": ...,
+}`
+
+| Campo    | Tipo    | Descripción             |
+| -------- | ------- | ----------------------- |
+| `username` | `chard` | Descripción del campo2. |
+| `useremail` | `chard` | Descripción del campo3. |
+| `credit_card_number` | `int` | Descripción del campo3. |
+| `created_timestamp` | `date` | Descripción del campo3. |
+
+Para realizar la consulta unicamente es necesario realizar la petición POST directo sobre la base datos con los parametros relacionados anteriormente, tendiendo en cuenta que todos son requeridos para que se realice de manera satisfactoria esta acción.
+
+![image](https://github.com/JackGox99/Reto_Meli/assets/93834468/457bdc40-438e-494a-b104-3daa8cb7d78e)
 
 #### Respuesta
 
 ```json
 {
-  "data": [
-    {
-      "campo1": "valor1",
-      "campo2": "valor2",
-      "campo3": "valor3"
-    },
-    {
-      "campo1": "valor4",
-      "campo2": "valor5",
-      "campo3": "valor6"
-    }
-  ]
+  "id": 6,
+  "username": "test-username",
+  "useremail": "Useremail@test.com",
+  "credit_card_number": 1231241,
+  "created_timestamp": "2023-05-29"
 }
-
- 
 ```
+ 

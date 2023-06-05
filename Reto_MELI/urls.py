@@ -14,12 +14,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
+    # URL para acceder a la interfaz de administración de Django
     path('admin/', admin.site.urls),
+    # URL base para las rutas de la API REST
     path('api/v1/', include('api.urls')),
+    # URL para acceder a la documentación de la API
     path('docs/', include_docs_urls(title='Documentación API')),
 ]
